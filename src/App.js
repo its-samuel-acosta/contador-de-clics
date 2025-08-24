@@ -2,16 +2,22 @@ import "./App.css";
 import freeCodeCampLogo from "./imagenes/freecodecamp-logo.png"; /* Despues del import va el nombre que se prefiera para referirse al objeto, imagen */
 import Boton from "./componentes/Boton"; /* IMPORTACION DEL COMPONENTE BOTON */
 import Contador from "./componentes/Contador"; /* IMPORTACION DEL COMPONENTE CONTADOR */
-
+import {useState} from 'react';
+// USO DEL HOOK, useState: PERMITE AGREGAR ESTADO A UN COMPONENTE FUNCIONAL
 function App() {
+
+  // USO DEL HOOK. SE CREA UN ARREGLO QUE TENDRA DENTRO DE LOS [] LO SIGUIENTE:
+  // PRIMER ARGUMENTO, VALOR O ESTADO. 
+  // SEGUNDO PARAMETRO, FUNCION QUE ACTUALIZARA EL ESTADO O VALOR
+  const[numClics, setNumClics] = useState(0); // ENTRE PARENTESIS SE COLOCA EL ESTADO INICIAL, EL VALOR INICIAL QUE TENDRA NUESTRO ESTADO
 
   // FUNCIONES DENTRO DE UN COMPONENTE, EN ESTE CASO EL COMPONENTE PRINCIPAL DE LA APLICACION APP
   const manejarClic = () => {
-    console.log("Botón clickeado");
+    setNumClics(numClics + 1);
   };
 
   const reiniciarContador = () => {
-    console.log("Contador reiniciado");
+    setNumClics(0);
   };
 
   return (
@@ -28,7 +34,7 @@ function App() {
       <div className="contenedor-principal">
 
         <Contador 
-          numClics="0"
+          numClics={numClics}
         />
 
         <Boton 
