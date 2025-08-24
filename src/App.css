@@ -29,3 +29,13 @@ html, body{
 .freecodecamp-logo{
   height: 50px;
 }
+
+.contenedor-principal{
+  display: flex;
+  height: 550px;
+  min-width: 600px;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
